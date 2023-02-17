@@ -1,25 +1,24 @@
 #include <stdio.h>
+
 /**
- * main - Entry piont
+ * main - Print the alphabet.
  *
  * Return: Always 0 (Success)
  */
 int main(void)
 {
-	char c;
+	int ch;
 
-	char d;
+	for (ch = 'a'; ch <= 'z'; ch++)
+	{
+		putchar(ch);
+	}
 
-	c = "a";
-	d = "A";
-		while
-			(c <= "z") {
-				putchar(c);
-				c++;
-			}
-	while
-		(d <= 'z') {
-			putchar(c);
-			d++;
-		}
+	for (ch = 'A'; ch <= 'Z', ch++)
+	{
+		putchar(ch);
+	}
+
+	putchar('\n');
+	return (0);
 }
