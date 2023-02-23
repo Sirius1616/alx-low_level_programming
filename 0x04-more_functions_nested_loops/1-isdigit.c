@@ -1,3 +1,5 @@
+#include "main.h"
+
 /**
  * _isdigit - a function that checks for a digit
  * @c: the argument to be checked
