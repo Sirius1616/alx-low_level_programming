@@ -7,7 +7,7 @@
  * Return: 0 Always when the programme ends
  */
 
-int _isupper(int c);
+int _isupper(int c)
 {
 	if (c >= 'A' && c <= 'Z')
 	{
