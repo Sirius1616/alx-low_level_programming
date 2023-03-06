@@ -12,20 +12,20 @@ unsigned int _strspn(char *s, char *accept)
 {
 	unsigned int i;
 	unsigned int j;
-	unsigned int count;
+	unsigned int bool;
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		count = 1;
+		bool = 1;
 		for (j = 0; accept[j] != '\0'; j++)
 		{
 			if (s[i] != accept[j])
 			{
-				count = 0;
+				bool = 0;
 				break;
 			}
 		}
-		if(count == 1)
+		if(bool == 1)
 			break;
 	}
 	return (i);
