@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
 * _strdup - duplicate to new memory space location
@@ -11,7 +12,7 @@
 char *_strdup(char *str)
 {
 	char *str0;
-	int i;
+	int i = 0;
 	int j;
 
 	if (str == NULL)
