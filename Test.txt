@@ -1,0 +1,33 @@
+Git Push to Remote Branch – How to Push a Local Branch to Origin
+John Mosesman
+
+April 26, 2021
+The basic command for pushing a local branch to a remote repository is git push.
+
+This command has a variety of options and parameters you can pass to it, and in this article you'll learn the ones that you will use the most often.
+
+How to push a local Git branch to Origin
+If you run the simple command git push, Git will by default choose two more parameters for you: the remote repository to push to and the branch to push.
+
+The general form of the command is this:
+
+$ git push <remote> <branch>
+By default, Git chooses origin for the remote and your current branch as the branch to push.
+
+If your current branch is main, the command git push will supply the two default parameters—effectively running git push origin main.
+
+In the example below, the origin remote is a GitHub repository, and the current branch is main:
+
+(main)$ git remote -v 
+origin  git@github.com:johnmosesman/burner-repo.git (fetch)
+origin  git@github.com:johnmosesman/burner-repo.git (push)
+
+(main)$ git push
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 274 bytes | 274.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To github.com:johnmosesman/burner-repo.git
+   b7f661f..ab77dd6  main -> main
