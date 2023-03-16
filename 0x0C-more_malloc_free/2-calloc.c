@@ -9,7 +9,7 @@
  * Return: p
  */
 
-void *my_memset(int *p, int x, size_t n)
+void *my_memset(char *p, char x, size_t n)
 {
 	unsigned int i;
 
@@ -27,7 +27,7 @@ void *my_memset(int *p, int x, size_t n)
 
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	int *ptr;
+	char *ptr;
 
 	ptr = malloc(nmemb * size);
 
