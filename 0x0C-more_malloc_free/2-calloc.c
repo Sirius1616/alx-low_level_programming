@@ -9,12 +9,14 @@
  * Return: p
  */
 
-void *my_memset(char *p, char x, size_t n)
+void *my_memset(char *p, char x, unsigned int n)
 {
 	unsigned int i;
 
 	for (i = 0; i < n; i++)
+	{
 		p[i] = x;
+	}
 	return (p);
 }
 
@@ -29,14 +31,15 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	char *ptr;
 
+	if (nmemb == 0 || size == 0)
+		return (NULL);
+
 	ptr = malloc(nmemb * size);
 
 	if (ptr == NULL)
 		return (NULL);
 
-	if (nmemb == 0 || size == 0)
-		return (NULL);
-	my_memset(ptr, 0, size);
+	my_memset(ptr, 0, nmemb * size);
 
 	return (ptr);
 }
