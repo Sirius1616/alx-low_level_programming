@@ -2,49 +2,51 @@
 #include <stdlib.h>
 
 /**
- * string_nconcat - a function that return concatenated strings
- * @s1: the first string
- * @s2: the second string
- * @n: number of bytes to be assigned from s2
- * Return: ptr
+ * string_nconcat - concatenates two strings.
+ * @s1: first string
+ * @s2: second string
+ * @n: index
+ * Return: char pointer
  */
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	char *ptr;
-	unsigned int i, j, x, y;
+	char *p;
+	unsigned int size1 = 0, size2 = 0, i;
 
-	i = 0;
-	while (s1[i] != '\0')
-		i++;
-	j = 0;
-	while (s2[j] != '\0')
-		j++;
 	if (s1 == NULL)
 		s1 = "";
+
 	if (s2 == NULL)
 		s2 = "";
-	if (n < j)
+
+	while (s1[size1] != '\0')
 	{
-		ptr = malloc(sizeof(char) * (i + n) + 1);
-		if (ptr == NULL)
-			return (NULL);
-		for (x = 0; s1[x] != '\0'; x++)
-			ptr[x] = s1[x];
-		for (y = 0; y < n; y++, x++)
-			ptr[x] = s2[y];
-		ptr[x] = '\0';
+		size1++;
 	}
-	else
+
+	while (s2[size2] != '\0')
 	{
-		ptr = malloc(sizeof(char) * (i + j) + 1);
-			if (ptr == NULL)
-				return (NULL);
-		for (x = 0; s1[x] != '\0'; x++)
-			ptr[x] = s1[x];
-		for (y = 0; s2[y] != '\0'; y++, x++)
-			ptr[x] = s2[y];
-		ptr[x] = '\0';
+		size2++;
 	}
-	return (ptr);
+
+	if (n > size2)
+	n = size2;
+	p = malloc((size1 + n + 1) * sizeof(char));
+
+	if (p == NULL)
+		return (0);
+
+	for (i = 0; i < size1; i++)
+	{
+		p[i] = s1[i];
+	}
+
+	for (; i < (size1 + n); i++)
+	{
+		p[i] = s2[i - size1];
+	}
+	p[i] = '\0';
+
+return (p);
 }
