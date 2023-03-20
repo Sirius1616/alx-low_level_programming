@@ -6,6 +6,7 @@
  * @name: first member
  * @age: second member
  * @owner: third member
+ * @d: the particular dog
  */
 
 
