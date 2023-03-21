@@ -23,7 +23,7 @@ int _strlen(char *a)
  * _strcpy - a function that
  * @dest: the destination for the copy
  * @src: the source of the copy
- *
+ * Return: dest
  */
 char *_strcpy(char *dest, char *src)
 {
