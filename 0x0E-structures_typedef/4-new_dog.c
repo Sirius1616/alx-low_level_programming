@@ -21,17 +21,28 @@ int _strlen(char *a)
 
 /**
  * _strcpy - a function that
- * @to: the destination for the copy
- * @from: the source of the copy
+ * @dest: the destination for the copy
+ * @src: the source of the copy
  *
  */
-void _strcpy(char to[], char from[])
+char *_strcpy(char *dest, char *src)
 {
-	int i;
+	int len, i;
 
-	for (i = 0; from[i] != '\0'; i++)
-		to[i] = from[i];
-	to[i] = '\0';
+	len = 0;
+
+	while (src[len] != '\0')
+	{
+		len++;
+	}
+
+	for (i = 0; i < len; i++)
+	{
+		dest[i] = src[i];
+	}
+	dest[i] = '\0';
+
+	return (dest);
 }
 
 /**
@@ -44,25 +55,32 @@ void _strcpy(char to[], char from[])
 
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *new_dog;
+	dog_t *dog;
+	int len1, len2;
 
-	new_dog = malloc(sizeof(dog_t));
-	if (new_dog == NULL)
+	len1 = _strlen(name);
+	len2 = _strlen(owner);
+
+	dog = malloc(sizeof(dog_t));
+	if (dog == NULL)
 		return (NULL);
 
-
-	new_dog->name = malloc(sizeof(new_dog->name) * (_strlen(name) + 1));
-	new_dog->owner = malloc(sizeof(new_dog->owner) * (_strlen(owner) + 1));
-	if (new_dog->name == NULL || new_dog->owner == NULL)
+	dog->name = malloc(sizeof(char) * (len1 + 1));
+	if (dog->name == NULL)
 	{
-		free(new_dog->name);
-		free(new_dog->owner);
-		free(new_dog);
+		free(dog);
 		return (NULL);
 	}
+	dog->owner = malloc(sizeof(char) * (len2 + 1));
+	if (dog->owner == NULL)
+	{
+		free(dog);
+		free(dog->name);
+		return (NULL);
+	}
+	_strcpy(dog->name, name);
+	_strcpy(dog->owner, owner);
+	dog->age = age;
 
-	_strcpy(new_dog->name,  name);
-	_strcpy(new_dog->owner, owner);
-	new_dog->age = age;
-	return (0);
+	return (dog);
 }
