@@ -23,7 +23,13 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 		if (separator == NULL)
 			printf("%d", x);
 		else
-			printf("%d%s ", x, separator);
+		{
+			printf("%d", x);
+			if (i == (n - 1))
+				break;
+			printf("%s", separator);
+		}	
+			
 	}
 	printf("\n");
 
