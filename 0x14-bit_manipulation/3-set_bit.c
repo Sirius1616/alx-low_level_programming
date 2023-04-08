@@ -3,8 +3,8 @@
 /**
  * set_bit - a function that sets the bit to 1
  * @n: the integer
- * @index: the index 
- * Return: bit 
+ * @index: the index
+ * Return: bit
  */
 
 int set_bit(unsigned long int *n, unsigned int index)
