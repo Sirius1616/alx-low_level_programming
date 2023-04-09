@@ -12,11 +12,11 @@ int create_file(const char *filename, char *text_content)
 	int fd, fw, i;
 
 	if (filename == NULL)
-		return (0);
+		return (-1);
 
 	fd = open(filename, O_WRONLY | O_TRUNC | O_CREAT, 0600);
 	if (fd < 0)
-		return (0);
+		return (-1);
 
 	if (text_content != NULL)
 	{
