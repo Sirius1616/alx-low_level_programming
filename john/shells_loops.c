@@ -56,13 +56,13 @@ int find_builtin(info_t *inf)
 {
 	int x, built_in_rt = -1;
 	builtin_table builtintbl[] = {
-		{"exit", _myexit},
-		{"env", _myenv},
-		{"help", _myhelp},
-		{"history", _myhistory},
-		{"setenv", _mysetenv},
-		{"unsetenv", _myunsetenv},
-		{"cd", _mycd},
+		{"exit", my_exit},
+		{"env", my_env},
+		{"help", help_cd},
+		{"history", my_hist},
+		{"setenv", my_set_env},
+		{"unsetenv", my_unset_env},
+		{"cd", change_cd},
 		{"alias", _myalias},
 		{NULL, NULL}
 	};
@@ -95,12 +95,12 @@ void find_cmd(info_t *inf)
 		inf->linecount_flag = 0;
 	}
 	for (x = 0, y = 0; inf->arg[x]; x++)
-		if (!is_delim(inf->arg[x], " \t\n"))
+		if (!is_delimiter(inf->arg[x], " \t\n"))
 			y++;
 	if (!y)
 		return;
 
-	path = find_path(inf, _getenv(inf, "PATH="), inf->argv[0]);
+	path = find_path(inf, get_env(inf, "PATH="), inf->argv[0]);
 	if (path)
 	{
 		inf->path = path;
