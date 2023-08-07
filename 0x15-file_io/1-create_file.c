@@ -25,14 +25,14 @@ int create_file(const char *filename, char *text_content)
 	if (text_content != NULL)
 		len = _strlen(text_content);
 
- 	fw = write(fd, text_content, len);
+	fw = write(fd, text_content, len);
 	if (fw == -1)
 		return (-1);
 
 	close(fd);
 
 	return (1);
- }
+}
 
 
 /**
