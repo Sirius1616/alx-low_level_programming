@@ -1,5 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
+#ifndef BUFF_SIZE
+#define BUFF_SIZE 1024
 #include <sys/types.h>
 #include <unistd.h>
 #include <stdlib.h>
